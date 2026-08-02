@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ខេត្តកែប​​ - Kep Province</title>
+    <link
+      rel="icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/8/80/Seal_of_Kep_Provincial_Administration.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          "Khmer OS Battambang", "Noto Sans Khmer", "Arial", sans-serif;
+        color: #333;
+        line-height: 1.8;
+        overflow-x: hidden;
+      }
+
+      /* ===== NAVIGATION ===== */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(15, 50, 30, 0.92);
+        backdrop-filter: blur(12px);
+        z-index: 1000;
+        padding: 0 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .navbar .logo span {
+        color: #7cfc00;
+      }
+
+   
+      .hero {
+        height: 100vh;
+        background:
+          linear-gradient(135deg, rgba(10, 46, 20, 0.7), rgba(0, 80, 120, 0.5)),
+          url("https://scontent.fpnh2-1.fna.fbcdn.net/v/t39.30808-6/520231276_1353635366767569_1838521391591714492_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x960&ctp=s1440x960&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGc16HuT44ouuk1sQxqlWkADm7m06klCcIObubTqSUJwt6KG012GcicpvlcYliTSE7o11QhJUu1sovYT5pUY2wZ&_nc_ohc=wk0M83LVgisQ7kNvwES9w-T&_nc_oc=AdrqfhpPNimsW6-v1s66_ekw7KAedc5J1Avc4wsAHRyYvMZjH2nP2WnZSY9VJRuzzek&_nc_zt=23&_nc_ht=scontent.fpnh2-1.fna&_nc_gid=S1GJg3qOkx0fNE0iF2qLDg&_nc_ss=7b2a8&oh=00_Af-qXJieI-wpjIYiC0e6lkbP_HfgMaHeZ6pOY5-pu9I0Fg&oe=6A430010")
+            center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+        position: relative;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 150px;
+        background: linear-gradient(transparent, #f5f5f0);
+      }
+
+      .hero-content {
+        z-index: 2;
+        animation: fadeUp 1.2s ease;
+      }
+
+      .hero-content .subtitle {
+        font-size: 1.1rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: #7cfc00;
+        margin-bottom: 15px;
+      }
+
+      .hero-content h1 {
+        font-size: 4rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 4px 15px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-content h1 span {
+        color: #7cfc00;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        max-width: 650px;
+        margin: 20px auto 35px;
+        opacity: 0.9;
+      }
+
+ 
+      section {
+        padding: 90px 5%;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-header .tag {
+        display: inline-block;
+        background: #e8f5e9;
+        color: #0a6e2e;
+        padding: 6px 20px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem;
+        color: #0a2e14;
+        margin-bottom: 15px;
+      }
+
+      .section-header p {
+        max-width: 600px;
+        margin: 0 auto;
+        color: #666;
+      }
+
+
+      .about {
+        background: #f5f5f0;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .about-image .main-img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .about-text p {
+        color: #555;
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      .gallery {
+        background: #f5f5f0;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 220px);
+        gap: 15px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .gallery-item {
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+    
+      .cta {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(10, 46, 20, 0.85),
+            rgba(0, 80, 120, 0.7)
+          ),
+          url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIWCgO8PJ8XF0yHB7-HFunB_tuc7l5uucQjvJa1FuLXPr1e4d56aJ9yIOo&s=10")
+            center/cover;
+        text-align: center;
+        color: #fff;
+        padding: 100px 5%;
+      }
+
+      .cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      .cta p {
+        max-width: 600px;
+        margin: 0 auto 35px;
+        opacity: 0.9;
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        padding: 14px 35px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .btn-primary {
+        background: #7cfc00;
+        color: #0a2e14;
+      }
+
+      .btn-primary:hover {
+        background: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(124, 252, 0, 0.3);
+      }
+
+   
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 992px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: auto;
+        }
+
+        .gallery-item:nth-child(1) {
+          grid-column: span 2;
+        }
+
+        .hero-content h1 {
+          font-size: 2.8rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-item:nth-child(1) {
+          grid-column: span 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+ 
+    <nav class="navbar">
+      <a href="Kep Province.html" class="logo">ខេត្ត<span>កែប</span></a>
+    </nav>
+
+   
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="subtitle">រីករាយមកកាន់</div>
+        <h1>ខេត្ត<span>កែប</span></h1>
+        <p>
+          ខេត្តមួយនៅភាគនិរតីនៃព្រះរាជាណាចក្រកម្ពុជា
+          ដែលល្បីល្បាញដោយសារទេសភាពធម្មជាតិ សមុទ្រ ភ្នំ ទន្លេ
+          និងវប្បធម៌ក្នុងតំបន់។
+        </p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="section-header">
+        <span class="tag">អំពីខេត្តកែប</span>
+      </div>
+      <div class="about-grid">
+        <div class="about-image">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/White_Horse_Roundabout_%28Kep%29.jpg/1280px-White_Horse_Roundabout_%28Kep%29.jpg"
+            alt="kep"
+            class="main-img"
+          />
+        </div>
+        <div class="about-text">
+          <p>
+            ខេត្តកែប គឺជាខេត្តតូចជាងគេបំផុតក្នុងប្រទេសកម្ពុជា
+            ដែលមានផ្ទៃក្រឡាចំនួន ៣៣៦គីឡូម៉ែត្រការ៉េ (១៣០ម៉ាញ៍)
+            ដែលមានប្រជាជនចំនួន ៤១ ៧៩៨។
+            ជាខេត្តមួយក្នុងចំណោមខេត្តថ្មីបំផុតរបស់កម្ពុជា រួមជាមួយនឹងខេត្តប៉ៃលិន
+            ខេត្តព្រះសីហនុ និងខេត្តត្បូងឃ្មុំ
+            ដែលបង្កើតឡើងដោយព្រះរាជក្រឹត្យចុះថ្ងៃទី២២ ខែធ្នូ ឆ្នាំ២០០៨
+            ដែលបានបំបែកក្រុងកែប និងស្រុកដំណាក់ចង្អើរចេញពីខេត្តកំពត
+            ក៏ដូចជាការកែសម្រួលព្រំប្រទល់ខេត្តមួយចំនួនផងដែរ។
+            ខេត្តកែបជាខេត្តតូចជាងគេ និងមានប្រជាជនរស់នៅតិចជាងគេបំផុតរបស់កម្ពុជា។
+            ទីរួមខេត្តគឺក្រុងកែប ហើយខេត្តនេះមានឧទ្យានជាតិកែបថែមទៀតផង។
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery" id="gallery">
+      <div class="section-header">
+        <span class="tag">រូបភាព</span>
+        <h2>រូបភាពស្រស់ស្អាតនៃខេត្តកែប</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCxCCMUO7eJ7oJWBbY8RlRp23nHF1ECwjBVcAbIVgEbw&s=10"
+            alt="Kampot 1"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://img.harbor-property.com/bkcontent/2023/08/10/16300001.jpeg"
+            alt="Kampot 2"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://www.trailsofindochina.com/wp-content/uploads/2018/04/Kep_header.jpg"
+            alt="Kampot 3"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://img.harbor-property.com/bkcontent/2023/08/10/16300004.jpeg"
+            alt="Kampot 4"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://img.harbor-property.com/bkcontent/2023/08/10/16300006.jpeg"
+            alt="Kampot 5"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta">
+      <h2>តើអ្នកបានមកកម្សាន្តនៅកែបហើយឬនៅ?</h2>
+      <p>
+        ជាមួយនឹងបរិយាកាសស្រស់ស្រាយ ទេសភាពស្រស់ស្អាត
+        និងការស្វាគមន៍យ៉ាងកក់ក្ដៅពីប្រជាជនក្នុងតំបន់
+      </p>
+      <a href="Home is All index.html" class="btn btn-primary"
+        >ត្រឡប់ទៅទំព័រដើម</a
+      >
+    </section>
+  </body>
+</html>

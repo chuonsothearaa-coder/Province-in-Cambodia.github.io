@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ខេត្តព្រះវិហារ - Preah Vihear Province</title>
+    <link
+      rel="icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Coat_of_arms_of_Preah_Vihear.svg/1200px-Coat_of_arms_of_Preah_Vihear.svg.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          "Khmer OS Battambang", "Noto Sans Khmer", "Arial", sans-serif;
+        color: #333;
+        line-height: 1.8;
+        overflow-x: hidden;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(85, 55, 30, 0.92);
+        backdrop-filter: blur(12px);
+        z-index: 1000;
+        padding: 0 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .navbar .logo span {
+        color: #d4a574;
+      }
+
+      .hero {
+        height: 100vh;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(85, 55, 30, 0.193),
+            rgba(139, 69, 19, 0.6)
+          ),
+          url("https://moe.gov.kh/wp-content/uploads/2017/07/20229340_1462750977124696_1939328124884443911_n.jpg")
+            center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+        position: relative;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 150px;
+        background: linear-gradient(transparent, #f5f5f0);
+      }
+
+      .hero-content {
+        z-index: 2;
+        animation: fadeUp 1.2s ease;
+      }
+
+      .hero-content .subtitle {
+        font-size: 1.1rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: #d4a574;
+        margin-bottom: 15px;
+      }
+
+      .hero-content h1 {
+        font-size: 4rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 4px 15px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-content h1 span {
+        color: #d4a574;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        max-width: 650px;
+        margin: 20px auto 35px;
+        opacity: 0.9;
+      }
+
+      section {
+        padding: 90px 5%;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-header .tag {
+        display: inline-block;
+        background: #fef3e2;
+        color: #8b4513;
+        padding: 6px 20px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem;
+        color: #55371e;
+        margin-bottom: 15px;
+      }
+
+      .section-header p {
+        max-width: 600px;
+        margin: 0 auto;
+        color: #666;
+      }
+
+      .about {
+        background: #f5f5f0;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .about-image .main-img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .about-text p {
+        color: #555;
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      .gallery {
+        background: #f5f5f0;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 220px);
+        gap: 15px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .gallery-item {
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .cta {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(85, 55, 30, 0.85),
+            rgba(139, 69, 19, 0.229)
+          ),
+          url("https://lh3.googleusercontent.com/pw/ACtC-3cCw-HKPowevChh-NR81wdDQW-aUzsZP_fBU5ogPiEklWLUG1digOmZgbtz-pfXwiqD33j1xfODxwzFot06tAUvCCn56w8u_x5Auphx42wemB6BpK48Kc8tMYWPvdoLWbTLB07QM8BxnpgV-HVUKKR-=w958-h640-no")
+            center/cover;
+        text-align: center;
+        color: #fff;
+        padding: 100px 5%;
+      }
+
+      .cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      .cta p {
+        max-width: 600px;
+        margin: 0 auto 35px;
+        opacity: 0.9;
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        padding: 14px 35px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .btn-primary {
+        background: #d4a574;
+        color: #55371e;
+      }
+
+      .btn-primary:hover {
+        background: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 992px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: auto;
+        }
+
+        .gallery-item:nth-child(1) {
+          grid-column: span 2;
+        }
+
+        .hero-content h1 {
+          font-size: 2.8rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-item:nth-child(1) {
+          grid-column: span 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="Pares viha.html" class="logo"
+        >ខេត្ត<span>ព្រះវិហារ</span></a
+      >
+    </nav>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="subtitle">រីករាយមកកាន់</div>
+        <h1>ខេត្ត<span>ព្រះវិហារ</span></h1>
+        <p>
+          ខេត្តមួយនៃព្រះរាជាណាចក្រកម្ពុជា ដែលល្បីល្បាញដោយសារប្រាសាទបុរាណ
+          បេតិកភណ្ឌពិភពលោក ទេសភាពភ្នំដ៏អស្ចារ្យ និងព្រៃឈើដ៏ធំធេង។
+        </p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="section-header">
+        <span class="tag">អំពីខេត្តព្រះវិហារ</span>
+      </div>
+      <div class="about-grid">
+        <div class="about-image">
+          <img
+            src="https://asset.tovtrip.com//uploads/0000/109/2023/03/02/67ed457bf39b35c8853a20b4c86b6966.jpg"
+            alt="Preah Vihear Temple"
+            class="main-img"
+          />
+        </div>
+        <div class="about-text">
+          <p>
+            ខេត្តព្រះវិហារ 
+            គឺជាខេត្តមួយដែលមានទីតាំងស្ថិតនៅភាគខាងជើងនៃព្រះរាជាណាចក្រកម្ពុជា។
+            ទីរួមខេត្តរបស់ខេត្តព្រះវិហារគឺក្រុងព្រះវិហារ (ភ្នំត្បែងមានជ័យ)។
+            ខេត្តព្រះវិហារមានព្រំប្រទល់ខាងជើងជាប់នឹងប្រទេសថៃ និងប្រទេសឡាវ
+            ខាងកើតជាប់នឹងខេត្តស្ទឹងត្រែង ខាងត្បូងជាប់នឹងខេត្តកំពង់ធំ
+            និងខាងលិចជាប់នឹងខេត្តសៀមរាប និងខេត្តឧត្តរមានជ័យ។
+          </p>
+          <p>
+            ខេត្តនេះល្បីល្បាញបំផុតដោយសារប្រាសាទព្រះវិហារ ដែលជាបេតិកភណ្ឌពិភពលោក
+            របស់អង្គការយូណេស្កូ (UNESCO World Heritage Site)។
+            ប្រាសាទនេះស្ថិតនៅលើកំពូលភ្នំដងរែក កម្ពស់ ៥២៥ម៉ែត្រ
+            និងមានទេសភាពដ៏អស្ចារ្យមើលទៅកាន់វាលទំនាបដ៏ធំទូលាយ។
+            ខេត្តនេះក៏មានប្រាសាទបុរាណជាច្រើនទៀតដូចជា ប្រាសាទកោះកេរ្តិ៍
+            (ប្រាសាទពីរ៉ាមីដ ៧ ជាន់) និងប្រាសាទព្រះខ័នកំពង់ស្វាយ
+            ដែលជាកំពូលប្រាសាទធំបំផុតក្នុងសម័យអង្គរ។
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="section-header">
+        <span class="tag">រូបភាព</span>
+        <h2>រូបភាពស្រស់ស្អាតនៃខេត្តព្រះវិហារ</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img
+            src="https://s9.kh1.co/bf/bfd12c6bf424874eabf5c007bce2f881fd713d0c.jpg"
+            alt="Preah Vihear Temple"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIvkNGo1_QVyEmoP8bLmCoQOKToRG2iIG0lizeI36bShfE872X0Byf4n0&s=10"
+            alt="Koh Ker Temple - Prasat Thom"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cambodiapropertyreport.com//storage/posts/April2024/c31675e988254ebda4a6c4ad77961726.jpg"
+            alt="Koh Ker Pyramid"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cdn.sabay.com/cdn/media.sabay.com/media/Art-social(1)/Temple(3)/5eec95235e2df_1592562960_medium.jpg"
+            alt="Preah Vihear View"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkpsO78Gkr979WIAsLyyKiLC_eARw9tN8AwQdx3icvzqaw-NX9KYFA5PY9&s=10"
+            alt="Temple Architecture"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="cta">
+      <h2>តើអ្នកបានមកកម្សាន្តនៅខេត្តព្រះវិហារហើយឬនៅ?</h2>
+      <p>
+        ជាមួយនឹងបរិយាកាសស្រស់ស្រាយ ទេសភាពភ្នំដ៏អស្ចារ្យ ប្រាសាទបុរាណដ៏អរិយធម៌
+        និងការស្វាគមន៍យ៉ាងកក់ក្ដៅពីប្រជាជនក្នុងតំបន់
+      </p>
+      <a href="Home is All index.html" class="btn btn-primary"
+        >ត្រឡប់ទៅទំព័រដើម</a
+      >
+    </section>
+  </body>
+</html>

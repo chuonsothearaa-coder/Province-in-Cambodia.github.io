@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ខេត្តឧត្តរមានជ័យ - Oddar Meanchey Province</title>
+    <link
+      rel="icon"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpsORzv0DbCPPe53HjyNQhqKzY7oEvjs3WvbH8FZ3aI_Wey1jA-ftyYi4&s=10"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          "Khmer OS Battambang", "Noto Sans Khmer", "Arial", sans-serif;
+        color: #333;
+        line-height: 1.8;
+        overflow-x: hidden;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(15, 50, 30, 0.92);
+        backdrop-filter: blur(12px);
+        z-index: 1000;
+        padding: 0 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .navbar .logo span {
+        color: #7cfc00;
+      }
+
+      .hero {
+        height: 100vh;
+        background:
+          linear-gradient(135deg, rgba(10, 46, 20, 0.7), rgba(0, 80, 120, 0.5)),
+          url("https://static.information.gov.kh/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBK1pHQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--d96f5630d34a2f0e882ea1a98aaa992fe0c4a18c/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lOTVRNMU1IZzVNREFHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--30b79c7f7567bd0a04d6c485cf8a2bbc24e21d2f/x1-15.jpg")
+            center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+        position: relative;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 150px;
+        background: linear-gradient(transparent, #f5f5f0);
+      }
+
+      .hero-content {
+        z-index: 2;
+        animation: fadeUp 1.2s ease;
+      }
+
+      .hero-content .subtitle {
+        font-size: 1.1rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: #7cfc00;
+        margin-bottom: 15px;
+      }
+
+      .hero-content h1 {
+        font-size: 4rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 4px 15px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-content h1 span {
+        color: #7cfc00;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        max-width: 650px;
+        margin: 20px auto 35px;
+        opacity: 0.9;
+      }
+
+      section {
+        padding: 90px 5%;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-header .tag {
+        display: inline-block;
+        background: #e8f5e9;
+        color: #0a6e2e;
+        padding: 6px 20px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem;
+        color: #0a2e14;
+        margin-bottom: 15px;
+      }
+
+      .section-header p {
+        max-width: 600px;
+        margin: 0 auto;
+        color: #666;
+      }
+
+      .about {
+        background: #f5f5f0;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .about-image .main-img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .about-text p {
+        color: #555;
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      .gallery {
+        background: #f5f5f0;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 220px);
+        gap: 15px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .gallery-item {
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .cta {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(10, 46, 20, 0.85),
+            rgba(0, 80, 120, 0.7)
+          ),
+          url("https://asset.cambodia.gov.kh/provincial/sites/19/2019/08/IMG_20190808_191123_987.jpg")
+            center/cover;
+        text-align: center;
+        color: #fff;
+        padding: 100px 5%;
+      }
+
+      .cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      .cta p {
+        max-width: 600px;
+        margin: 0 auto 35px;
+        opacity: 0.9;
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        padding: 14px 35px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .btn-primary {
+        background: #7cfc00;
+        color: #0a2e14;
+      }
+
+      .btn-primary:hover {
+        background: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(124, 252, 0, 0.3);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 992px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: auto;
+        }
+
+        .gallery-item:nth-child(1) {
+          grid-column: span 2;
+        }
+
+        .hero-content h1 {
+          font-size: 2.8rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-item:nth-child(1) {
+          grid-column: span 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="h der menchay.html" class="logo"
+        >ខេត្ត<span>ឧត្តរមានជ័យ</span></a
+      >
+    </nav>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="subtitle">រីករាយមកកាន់</div>
+        <h1>ខេត្ត<span>ឧត្តរមានជ័យ</span></h1>
+        <p>
+          ខេត្តមួយនៃព្រះរាជាណាចក្រកម្ពុជា ដែលល្បីល្បាញដោយសារប្រាសាទបុរាណ
+          ភ្នំដងរែក ទេសភាពធម្មជាតិ និងប្រវត្តិសាស្ត្រដ៏សម្បូរបែប។
+        </p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="section-header">
+        <span class="tag">អំពីខេត្តឧត្តរមានជ័យ</span>
+      </div>
+      <div class="about-grid">
+        <div class="about-image">
+          <img
+            src="https://cdn.cc-times.com/kh.cc-times.com/images/7274/large/64803540_2359398370963762_5730428280666849280_n.jpeg?1623850517"
+            alt="Prasat Ta Muen Thom"
+            class="main-img"
+          />
+        </div>
+        <div class="about-text">
+          <p>
+            ខេត្តឧត្តរមានជ័យ 
+            គឺជាខេត្តមួយដែលមានទីតាំងស្ថិតនៅភាគពាយ័ព្យនៃព្រះរាជាណាចក្រកម្ពុជា។
+            ទីរួមខេត្តរបស់ខេត្តឧត្តរមានជ័យគឺក្រុងសំរោង។
+            ខេត្តឧត្តរមានជ័យមានព្រំប្រទល់ខាងជើងជាប់នឹងប្រទេសថៃ
+            ខាងលិចជាប់នឹងខេត្តបន្ទាយមានជ័យ ខាងត្បូងជាប់នឹងខេត្តសៀមរាប
+            និងខាងកើតជាប់នឹងខេត្តព្រះវិហារ។
+          </p>
+          <p>
+            ខេត្តនេះមានរមណីយដ្ឋានទេសចរណ៍ជាច្រើនដូចជា
+            <strong>ប្រាសាទតាមឿនថ្ម</strong> ទឹកជ្រោះចំប៉ី អន្លង់វែង
+            (ទីកន្លែងប្រវត្តិសាស្ត្រខ្មែរក្រហម)
+            និងទេសភាពភ្នំដងរែកដ៏ស្រស់ស្អាតនៅតាមព្រំដែនកម្ពុជា-ថៃ។
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="section-header">
+        <span class="tag">រូបភាព</span>
+        <h2>រូបភាពស្រស់ស្អាតនៃខេត្តឧត្តរមានជ័យ</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkd6jbr8-IMWWfRjeSLaYzB14SDHvo6IbqeL1rEOq0snvj6AazDeNnl6E&s=10"
+            alt="Prasat Ta Muen Thom"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://media.gettyimages.com/id/2209604571/photo/this-aerial-photo-taken-on-march-21-shows-the-museum-at-the-house-of-khmer-rouge-commander-ta.jpg?s=612x612&w=gi&k=20&c=l1VGYsBUl1D1Jiz4kDQ8mIUCB2dhIht9_ND3vsU5GZU="
+            alt="Anlong Veng"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://t4.ftcdn.net/jpg/02/18/22/29/360_F_218222987_iGeKvoTvHedwVbTrien1tKavRb4C6Rae.jpg"
+            alt="Oddar Meanchey Seal"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://khmerpostasia.com/app/uploads/2025/07/photo_2025-07-24_12-26-29.jpg"
+            alt="Dangrek Mountains"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN-F6z_8rFDQMgsqata1YQA6ntj5-g3Yc-dHB0fvrcRQaZTyjg1fWhRG_F&s=10"
+            alt="Samraong Town"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="cta">
+      <h2>តើអ្នកបានមកកម្សាន្តនៅខេត្តឧត្តរមានជ័យហើយឬនៅ?</h2>
+      <p>
+        ជាមួយនឹងប្រាសាទបុរាណ ទេសភាពភ្នំដងរែកដ៏ស្រស់ស្អាត
+        និងការស្វាគមន៍យ៉ាងកក់ក្ដៅពីប្រជាជនក្នុងតំបន់
+      </p>
+      <a href="Home is All index.html" class="btn btn-primary"
+        >ត្រឡប់ទៅទំព័រដើម</a
+      >
+    </section>
+  </body>
+</html>

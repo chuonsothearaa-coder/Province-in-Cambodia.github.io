@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ខេត្តព្រះសីហនុ - Preah Sihanouk Province</title>
+    <link
+      rel="icon"
+      href="https://scontent.fpnh2-1.fna.fbcdn.net/v/t39.30808-6/278906753_313257534258397_8898549164542777733_n.jpg?stp=dst-jpg_tt6&cstp=mx1267x1266&ctp=s1267x1266&_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeF_Au4Sr8iwbLW7GkboqlN4v7brZKR0ge6_tutkpHSB7t8fJ8_7ig7nEcwLc5aD-3OLQOMEhvQYcyACDaGZjr2t&_nc_ohc=74IXQev8lvoQ7kNvwH2mbA2&_nc_oc=AdpvxszMWa-f5H4p5MZv0iRdcbeHu-rDsUuadJ3AMzVBcGvdXyku6ghsU95guXUvL20&_nc_zt=23&_nc_ht=scontent.fpnh2-1.fna&_nc_gid=HQ_1rsgehMQjocADPwITTg&_nc_ss=7b2a8&oh=00_Af8sfB0yme8OEzWgRIbwjCVG494ofBB9-WnwrkhVe1OtRA&oe=6A430EAF"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          "Khmer OS Battambang", "Noto Sans Khmer", "Arial", sans-serif;
+        color: #333;
+        line-height: 1.8;
+        overflow-x: hidden;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(15, 50, 30, 0.92);
+        backdrop-filter: blur(12px);
+        z-index: 1000;
+        padding: 0 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .navbar .logo span {
+        color: #7cfc00;
+      }
+
+      .hero {
+        height: 100vh;
+        background:
+          linear-gradient(135deg, rgba(10, 46, 20, 0.7), rgba(0, 80, 120, 0.5)),
+          url("https://jianhua.sgp1.cdn.digitaloceanspaces.com/2024/08/07960640.png")
+            center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+        position: relative;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 150px;
+        background: linear-gradient(transparent, #f5f5f0);
+      }
+
+      .hero-content {
+        z-index: 2;
+        animation: fadeUp 1.2s ease;
+      }
+
+      .hero-content .subtitle {
+        font-size: 1.1rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: #7cfc00;
+        margin-bottom: 15px;
+      }
+
+      .hero-content h1 {
+        font-size: 4rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 4px 15px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-content h1 span {
+        color: #7cfc00;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        max-width: 650px;
+        margin: 20px auto 35px;
+        opacity: 0.9;
+      }
+
+      section {
+        padding: 90px 5%;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-header .tag {
+        display: inline-block;
+        background: #e8f5e9;
+        color: #0a6e2e;
+        padding: 6px 20px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem;
+        color: #0a2e14;
+        margin-bottom: 15px;
+      }
+
+      .section-header p {
+        max-width: 600px;
+        margin: 0 auto;
+        color: #666;
+      }
+
+      .about {
+        background: #f5f5f0;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .about-image .main-img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .about-text p {
+        color: #555;
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      .gallery {
+        background: #f5f5f0;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 220px);
+        gap: 15px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .gallery-item {
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .cta {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(10, 46, 20, 0.85),
+            rgba(0, 80, 120, 0.7)
+          ),
+          url("https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcR0TrumXBXLRL3l08z2WqDyRm1vgJhpNOxgJTt0q6Z-ENBSn2EtfEy5V3wJgvh0yFYZQTu-ZV5VuKT_6LY")
+            center/cover;
+        text-align: center;
+        color: #fff;
+        padding: 100px 5%;
+      }
+
+      .cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      .cta p {
+        max-width: 600px;
+        margin: 0 auto 35px;
+        opacity: 0.9;
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        padding: 14px 35px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .btn-primary {
+        background: #7cfc00;
+        color: #0a2e14;
+      }
+
+      .btn-primary:hover {
+        background: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(124, 252, 0, 0.3);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 992px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: auto;
+        }
+
+        .gallery-item:nth-child(1) {
+          grid-column: span 2;
+        }
+
+        .hero-content h1 {
+          font-size: 2.8rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-item:nth-child(1) {
+          grid-column: span 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="Preah Sihanouk Province.html" class="logo"
+        >ខេត្ត<span>ខេត្តព្រះសីហនុ</span></a
+      >
+    </nav>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="subtitle">រីករាយមកកាន់</div>
+        <h1>ខេត្ត<span>ខេត្តព្រះសីហនុ</span></h1>
+        <p>
+          ខេត្តមួយនៃព្រះរាជាណាចក្រកម្ពុជា ដែលល្បីល្បាញដោយសារទេសភាពធម្មជាតិ ព្រៃ
+          សមុទ្រ នេសាទ និងវប្បធម៌ក្នុងតំបន់។
+        </p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="section-header">
+        <span class="tag">អំពីខេត្តព្រៃវែង</span>
+      </div>
+      <div class="about-grid">
+        <div class="about-image">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeKa-JBSap9YFlLy9eNjJ4i7W6JYUOpup-OZI9aRaWVc3GWFs_Gd3SA1WR&s=10"
+            alt=""
+            class="main-img"
+          />
+        </div>
+        <div class="about-text">
+          <p>
+            ក្រុងព្រះសីហនុ ជាក្រុងធំបង្អស់នៅប៉ែកខាងត្បូងនៃប្រទេសកម្ពុជា ។
+            នេះជាក្រុងដែលត្រូវបានបង្កើតថ្មី នៅឆ្នាំ១៩៦៤ ។
+            ការបង្កើតក្រុងព្រះសីហនុ គឺដើម្បីរំឭកដល់ស្នាដៃរបស់ព្រះបាទនរោត្តមសីហនុ
+            ។ ឈ្មោះដើមរបស់ក្រុងព្រះសីហនុ មុនឆ្នាំ១៩៦៤គឺកំពង់សោម ។ ក្រុងព្រះសីហនុ
+            ជាទីក្រុងកំពងផែសមុទ្រធំបង្អស់នៅឆ្នេរសមុទ្ររបស់ប្រទេសកម្ពុជា ។
+            ក្រុងព្រះសីហនុស្ថិតនៅពាក់កណ្តាល ចន្លោះប្រទេសថៃ និងប្រទេសវៀតណាម
+            ហើយក្រុងព្រះសីហនុជាទីក្រុងសំខាន់ជាងគេ នៅឈូងសមុទ្រថៃ ។
+            ក្រុងព្រះសីហ​នុជាកន្លែងដែលគួរឱ្យចាប់អារម្មណ៍ណាស់
+            សម្រាប់ទេសចរណ៍ជាតិនិងអន្តរជាតិ ។
+            យោងតាមឯកសារក្រសួងទេសចរណ៍នៃប្រទេសកម្ពុជា បានឱ្យដឹងថា ក្នុងឆ្នាំ២០០៦
+            មានចំនួនទេសចរណ៍អន្តរជាតិ ប្រមាណជាង ៣២០,០០០ នាក់
+            មកទស្សនាក្រុងព្រះសីហនុ ។ នៅខែមករា ឆ្នាំ២០០៧
+            ព្រលានយន្តហោះនៅក្រុងព្រះសីហនុ
+            ត្រូវបានបើកសម្ពោធដើម្បីការហោះហើរជាសំខាន់ ក្រុងសៀមរាប-ក្រុងព្រះសីហនុ
+            ហើយតាមគម្រោងនៃរាជរដ្ឋាភិបាល
+            បានឱ្យដឹងថាព្រលានយន្តហោះនៃក្រុងព្រះសីហនុនឹងក្លាយជាព្រលានយន្តហោះអន្តរជាតិនៅឆ្នាំ២០១០
+            ។​ ​
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="section-header">
+        <span class="tag">រូបភាព</span>
+        <h2>រូបភាពស្រស់ស្អាតនៃខេត្តព្រះសីហនុ</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRapROYh7EB72xVgKzL84v3ifgmNRnbagh0C45THkyB4oQLJjpqMvneFrY-&s=10"
+            alt="Kampot 1"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Krong_Preah_Sihanouk%2C_Cambodia_%28Unsplash%29.jpg/1280px-Krong_Preah_Sihanouk%2C_Cambodia_%28Unsplash%29.jpg"
+            alt="Kampot 2"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Krong_Preah_Sihanouk_04.jpg/1280px-Krong_Preah_Sihanouk_04.jpg"
+            alt="Kampot 3"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://img.harbor-property.com/bkcontent/2022/10/10/171400001.jpg"
+            alt="Kampot 4"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://s3.ams.com.kh/economy/2023/10/photo_2021-01-23_14-50-49-1024x768-1.jpg"
+            alt="Kampot 5"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="cta">
+      <h2>តើអ្នកបានមកកម្សាន្តនៅខេត្តព្រះសីហនុហើយឬនៅ?</h2>
+      <p>
+        ជាមួយនឹងបរិយាកាសស្រស់ស្រាយ ទេសភាពស្រស់ស្អាត
+        និងការស្វាគមន៍យ៉ាងកក់ក្ដៅពីប្រជាជនក្នុងតំបន់
+      </p>
+      <a href="Home is All index.html" class="btn btn-primary"
+        >ត្រឡប់ទៅទំព័រដើម</a
+      >
+    </section>
+  </body>
+</html>
